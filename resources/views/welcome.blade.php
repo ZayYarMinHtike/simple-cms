@@ -12,8 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: #202B33;
+                color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -49,9 +49,19 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .linksTwo > a {
+                color: #fff;
+                padding: 0 25px;
+                font-size: 20px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -68,7 +78,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/post') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,7 +91,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Simple CMS
+                        Group Blog
+                        
+                        
+                    <div class="linksTwo" >
+                        <a href="https://myanmarlinks.net" target="blank">Myanmar Links</a>
+                     </div>
+                    
+
+
+                    <div class="links">
+                        <a href="/post">Users Posts</a>
+                        <a href="#">Managers Posts</a>
+                        <a href="#">Admin Posts</a>
+                    </div>
                 </div>
             </div>
         </div>
