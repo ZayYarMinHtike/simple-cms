@@ -1,6 +1,4 @@
- <template 
- :user-id='@json(auth()->user()->id)'
- >
+ <template>
         <div id="posts">
             <p class="border p-3" v-for="post in posts" :key="post.id">
                 {{ post.title }}

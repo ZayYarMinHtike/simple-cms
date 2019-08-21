@@ -40,7 +40,8 @@
         this.fetchComments();
 
         Echo.private("comment").listen("CommentSent", e => {
-            this.comments.push({
+            this.comments
+            .push({
               user: {name: e.user.name},
               body: e.comment.body,
             });
@@ -51,13 +52,16 @@
         fetchComments() {
           axios.get("/" + this.postId + "/comments").then(response => {
             this.comments = response.data;
+
+            console.log(this.comments)
           });
         },
 
         addComment() {
           let body = this.$refs.body.value;
           axios.post("/" + this.postId + "/comments", { body }).then(response => {
-            this.comments.push({
+            this.comments
+            .push({
               user: {name: this.userName},
               body: this.$refs.body.value
             });

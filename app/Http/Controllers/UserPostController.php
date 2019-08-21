@@ -67,7 +67,7 @@ class UserPostController extends Controller
             $post->save();
             
             return new PostResource($post);
-        }
+    }
         
         /**
         * Display the specified resource.

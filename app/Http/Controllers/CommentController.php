@@ -12,24 +12,24 @@ class CommentController extends Controller
     {
         $this->validate(request(), [
             'body' => 'required',
-            ]);
+        ]);
             
-            $user = auth()->user();
+        $user = auth()->user();
             
-            $comment = Comment::create([
-                'user_id' => $user->id,
-                'post_id' => $post->id,
-                'body' => request('body'),
-                ]);
+        $comment = Comment::create([
+            'user_id' => $user->id,
+            'post_id' => $post->id,
+            'body' => request('body'),
+        ]);
                 
-                broadcast(new CommentSent($user, $comment))->toOthers();
+        broadcast(new CommentSent($user, $comment))->toOthers();
                 
-                return ['status' => 'Message Sent!'];
-            }
+        return ['status' => 'Message Sent!'];
+    }
             
-            public function index(Post $post)
-            {
-                return $post->comments()->with('user')->get();
-            }
-        }
+    public function index(Post $post)
+    {
+        return $post->comments()->with('user')->get();
+    }
+}
         

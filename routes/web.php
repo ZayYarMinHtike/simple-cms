@@ -16,6 +16,7 @@
 
     //User
     Route::get('/', 'PostController@all');
+    Route::get('/posts', 'PostController@all');
     Route::get('/posts/{post}', 'PostController@single');
     Route::get('/user/{any}', 'UserController@index')->where('any', '.*');
     Route::resource('api/posts', 'UserPostController');
